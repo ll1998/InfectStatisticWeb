@@ -3,33 +3,17 @@
 <html>
 <head>
 	<meta charset="utf-8">
-<link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1">	<script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	<script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
 	<script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com.cn/highcharts/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
-	<script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
-</head>
+    <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <style>#body {width:1000px; height: 1000px;margin: auto;}</style>
+</head> 
 
-<select id="se">
-    <option value ="2020-01-19">2020-01-19</option>
-    <option value ="2020-01-20">2020-01-20</option>
-    <option value ="2020-01-21">2020-01-21</option>
-    <option value ="2020-01-22">2020-01-22</option>
-    <option value ="2020-01-23">2020-01-23</option>
-    <option value ="2020-01-24">2020-01-24</option>
-    <option value ="2020-01-25">2020-01-25</option>
-    <option value ="2020-01-26">2020-01-26</option>
-    <option value ="2020-01-27">2020-01-27</option>
-    <option value ="2020-01-28">2020-01-28</option>
-    <option value ="2020-01-29">2020-01-29</option>
-    <option value ="2020-01-30">2020-01-30</option>
-    <option value ="2020-01-31">2020-01-31</option>
-    <option value ="2020-02-01">2020-02-01</option>
-    <option value ="2020-02-02">2020-02-02</option>
-</select>
 
-<button type="button" id="b1" style="color: #fa8072" onclick=func()>确定</button></br>
+
 
 <script type="text/javascript">
 
@@ -237,7 +221,28 @@
     localStorage.广东0202d="0";
 
 </script>
-<body>
+<body >
+    <div id="body">
+
+    <select id="se">
+        <option value ="2020-01-19">2020-01-19</option>
+        <option value ="2020-01-20">2020-01-20</option>
+        <option value ="2020-01-21">2020-01-21</option>
+        <option value ="2020-01-22">2020-01-22</option>
+        <option value ="2020-01-23">2020-01-23</option>
+        <option value ="2020-01-24">2020-01-24</option>
+        <option value ="2020-01-25">2020-01-25</option>
+        <option value ="2020-01-26">2020-01-26</option>
+        <option value ="2020-01-27">2020-01-27</option>
+        <option value ="2020-01-28">2020-01-28</option>
+        <option value ="2020-01-29">2020-01-29</option>
+        <option value ="2020-01-30">2020-01-30</option>
+        <option value ="2020-01-31">2020-01-31</option>
+        <option value ="2020-02-01">2020-02-01</option>
+        <option value ="2020-02-02">2020-02-02</option>
+    </select>
+    
+    <button type="button" id="b1" style="color: #fa8072" onclick=func()>确定</button></br>
 
 	<div id="container" style="max-width:800px;height:400px"></div>
 	<script>
@@ -261,7 +266,7 @@
 			label: {
 				connectorAllowed: false
 			},
-			pointStart: 2010
+			pointStart: 119
 		}
 	},
 	series: [{
@@ -367,5 +372,7 @@
     </tr>
 
 </table>
+    </div>
 </body>
+
 </html>
