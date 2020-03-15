@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
     <title>新冠肺炎疫情统计</title>
     <script src="echarts.min.js"></script>
-    <script src="china.js"></script>+
+    <script src="china.js"></script>
+    <script src="Statistic.js"></script>
+    <script src="Select.js"></script>
     <style>#china-map {width:1000px; height: 1000px;margin: auto;}</style>
 </head>
 <body>
-
     <!--下拉列表-->
-    <select id="se">
+    <select id="select">
         <option value ="2020-01-19">2020-01-19</option>
         <option value ="2020-01-20">2020-01-20</option>
         <option value ="2020-01-21">2020-01-21</option>
@@ -28,19 +29,18 @@
         <option value ="2020-02-01">2020-02-01</option>
         <option value ="2020-02-02">2020-02-02</option>
     </select>
-    <button type="button" id="b1" style="color: #fa8072" onclick=func()>确定</button></br>
+    <button type="button" id="b" style="color: #fa8072" onclick=func()>确定</button></br>
+
+    <!--标题设置-->
+    <h1 align="center"><font color="#374b71" face="等线" size=30>新型冠状肺炎疫情统计</font></h1>
+    <h2 id="date" align="center"><font color="grey" face="等线" size=5>数据来源：2020-03-10疫情病例统计</font></h2>
 
     <div id="china-map"></div>
     <script>
         var myChart = echarts.init(document.getElementById('china-map'));
-        var name_title = "新冠肺炎疫情统计"
-        var subname = '数据来源：2020-03-10实时疫情病例统计'
-        var nameColor = " rgb(55, 75, 113)"
-        var name_fontFamily = '等线'
-        var subname_fontSize = 15
-        var name_fontSize = 30
         var mapName = 'china'
 
+        //初始数据
         var data = [
             {name:"北京",value:101},
             {name:"天津",value:2},
@@ -73,13 +73,14 @@
             {name:"广东",value:71},
             {name:"广西",value:16},
             {name:"海南",value:3},
-            {name:"台湾",value:10}
-            ];
+            {name:"台湾",value:10}        
+        ];
             
         var geoCoordMap = {};
 
         //悬浮文字
         var toolTipData = [
+            
             {name:"北京",value:[{name:"现存确诊",value:101}]},
             {name:"天津",value:[{name:"现存确诊",value:2}]},
             {name:"河北",value:[{name:"现存确诊",value:5}]},
@@ -111,7 +112,7 @@
             {name:"广东",value:[{name:"现存确诊",value:71}]},
             {name:"广西",value:[{name:"现存确诊",value:16}]},
             {name:"海南",value:[{name:"现存确诊",value:3}]},
-            {name:"台湾",value:[{name:"现存确诊",value:10}]}
+            {name:"台湾",value:[{name:"现存确诊",value:10}]}  
         ];
 
         /*获取地图数据*/
@@ -132,7 +133,6 @@
             min = 9; // todo 
         var maxSize4Pin = 100,
             minSize4Pin = 20;
-
         var convertData = function(data) {
             var res = [];
             for (var i = 0; i < data.length; i++) {
@@ -146,8 +146,9 @@
             }
             return res;
         };
+
         option = {
-            title: {
+           /* title: {
                 text: name_title,
                 subtext: subname,
                 x: 'center',
@@ -160,7 +161,7 @@
                     fontSize:subname_fontSize,
                     fontFamily:name_fontFamily
                 }
-            },
+            },*/
             tooltip: {
                 trigger: 'item',
                 formatter: function(params) {

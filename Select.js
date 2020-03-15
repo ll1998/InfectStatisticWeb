@@ -1,9 +1,16 @@
 //下拉菜单选项处理
 function func()
 { 
-    var select = document.getElementById("select");
+    var select=document.getElementById("select");
     var opt=select.value;           
-    // document.getElementById("uptime").innerHTML=opt;
+    var subTitle=document.getElementById("date");
+    document.getElementById("date").innerHTML="数据来源："+opt+"疫情病例统计";
+    subTitle.style.color="grey";
+    subTitle.style.fontSizeAdjust=3
+    subTitle.style.fontFamily="等线"
+    
+    date=opt;
+    //document.write(date);
     if(opt=="2020-01-19")
     {
         for(var i=0;i<data.length;i++){
