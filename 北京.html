@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+<link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <script src="Statistic.js"></script>
+    <style>#body {width:1000px; height: 1000px;margin: auto;}</style>
+</head>
+
+<script type="text/javascript">
+    function func()
+    {
+
+        var select = document.getElementById("se");
+        var opt=select.value;
+        document.getElementById("uptime").innerHTML=opt;
+        if(opt=="2020-01-19")
+        {
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0119i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0119s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0119c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0119d");
+        }
+        else if(opt=="2020-01-20")
+        {
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0120i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0120s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0120c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0120d");
+        }
+        else if(opt=="2020-01-21"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0121i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0121s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0121c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0121d");
+        }
+        else if(opt=="2020-01-22"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0122i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0122s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0122c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0122d");
+            
+        }
+        else if(opt=="2020-01-23"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0123i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0123s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0123c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0123d");
+            
+        }
+        else if(opt=="2020-01-24"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0124i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0124s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0124c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0124d");
+        }
+        else if(opt=="2020-01-25"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0125i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0125s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0125c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0125d");
+        }
+        else if(opt=="2020-01-26"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0126i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0126s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0126c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0126d");
+
+        }
+        else if(opt=="2020-01-27"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0127i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0127s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0127c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0127d");
+        }
+        else if(opt=="2020-01-28"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0128i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0128s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0128c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0128d");
+        }
+        else if(opt=="2020-01-29"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0129i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0129s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0129c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0129d");
+        }
+        else if(opt=="2020-01-30"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0130i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0130s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0130c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0130d");
+        }
+
+        else if(opt=="2020-01-31"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0131i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0131s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0131c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0131d");
+        }
+        else if(opt=="2020-02-01"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0201i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0201s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0201c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0201d");
+        }
+        else if(opt=="2020-02-02"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("北京0202i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("北京0202s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("北京0202c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("北京0202d");
+        }
+    }
+</script>
+
+
+
+<!--
+<a href="./广东0119.html">
+    <button>2020-01-19</button>
+</a>
+<a href="./广东0120.html">
+    <button>2020-01-20</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-21</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-22</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-23</button>
+</a>
+-->
+
+
+
+<script type="text/javascript">
+    localStorage.北京0119i="0";
+    localStorage.北京0119s="0";
+    localStorage.北京0119c="0";
+    localStorage.北京0119d="0";
+
+    localStorage.北京0120i="5";
+    localStorage.北京0120s="0";
+    localStorage.北京0120c="0";
+    localStorage.北京0120d="0";
+
+    localStorage.北京0121i="10";
+    localStorage.北京0121s="0";
+    localStorage.北京0121c="0";
+    localStorage.北京0121d="0";
+
+    localStorage.北京0122i="14";
+    localStorage.北京0122s="0";
+    localStorage.北京0122c="0";
+    localStorage.北京0122d="0";
+
+    localStorage.北京0123i="26";
+    localStorage.北京0123s="0";
+    localStorage.北京0123c="0";
+    localStorage.北京0123d="0";
+
+    localStorage.北京0124i="35";
+    localStorage.北京0124s="0";
+    localStorage.北京0124c="1";
+    localStorage.北京0124d="0";
+
+    localStorage.北京0125i="49";
+    localStorage.北京0125s="0";
+    localStorage.北京0125c="2";
+    localStorage.北京0125d="0";
+
+    localStorage.北京0126i="66";
+    localStorage.北京0126s="0";
+    localStorage.北京0126c="2";
+    localStorage.北京0126d="0";
+
+    localStorage.北京0127i="77";
+    localStorage.北京0127s="0";
+    localStorage.北京0127c="2";
+    localStorage.北京0127d="1";
+
+    localStorage.北京0128i="86";
+    localStorage.北京0128s="0";
+    localStorage.北京0128c="4";
+    localStorage.北京0128d="1";
+
+    localStorage.北京0129i="106";
+    localStorage.北京0129s="0";
+    localStorage.北京0129c="4";
+    localStorage.北京0129d="1";
+
+    localStorage.北京0130i="126";
+    localStorage.北京0130s="0";
+    localStorage.北京0130c="5";
+    localStorage.北京0130d="1";
+
+    localStorage.北京0131i="150";
+    localStorage.北京0131s="0";
+    localStorage.北京0131c="5";
+    localStorage.北京0131d="0";
+
+    localStorage.北京0201i="173";
+    localStorage.北京0201s="0";
+    localStorage.北京0201c="9";
+    localStorage.北京0201d="1";
+
+    localStorage.北京0202i="181";
+    localStorage.北京0202s="0";
+    localStorage.北京0202c="9";
+    localStorage.北京0202d="1";
+
+</script>
+<body>
+    <div id="body">
+    <select id="se">
+        <option value ="2020-01-19">2020-01-19</option>
+        <option value ="2020-01-20">2020-01-20</option>
+        <option value ="2020-01-21">2020-01-21</option>
+        <option value ="2020-01-22">2020-01-22</option>
+        <option value ="2020-01-23">2020-01-23</option>
+        <option value ="2020-01-24">2020-01-24</option>
+        <option value ="2020-01-25">2020-01-25</option>
+        <option value ="2020-01-26">2020-01-26</option>
+        <option value ="2020-01-27">2020-01-27</option>
+        <option value ="2020-01-28">2020-01-28</option>
+        <option value ="2020-01-29">2020-01-29</option>
+        <option value ="2020-01-30">2020-01-30</option>
+        <option value ="2020-01-31">2020-01-31</option>
+        <option value ="2020-02-01">2020-02-01</option>
+        <option value ="2020-02-02">2020-02-02</option>
+    </select>
+    
+    <button type="button" id="b1" style="color: #fa8072" onclick=func()>确定</button></br>
+    
+
+	<div id="container" style="max-width:800px;height:400px"></div>
+	<script>
+	var chart = Highcharts.chart('container', {
+	title: {
+		text: '北京疫情统情况'
+	},
+	
+	yAxis: {
+		title: {
+			text: '人数'
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle'
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+			pointStart: 19
+		}
+	},
+	series: [{
+		name: '感染人数',
+		data: [parseInt(localStorage.getItem("北京0119i")), 
+               parseInt(localStorage.getItem("北京0120i")),
+               parseInt(localStorage.getItem("北京0121i")),
+               parseInt(localStorage.getItem("北京0122i")),
+               parseInt(localStorage.getItem("北京0123i")),
+               parseInt(localStorage.getItem("北京0124i")),
+               parseInt(localStorage.getItem("北京0125i")),
+               parseInt(localStorage.getItem("北京0126i")),
+               parseInt(localStorage.getItem("北京0127i")),
+               parseInt(localStorage.getItem("北京0128i")),
+               parseInt(localStorage.getItem("北京0129i")),
+               parseInt(localStorage.getItem("北京0130i")),
+               parseInt(localStorage.getItem("北京0131i")),
+               parseInt(localStorage.getItem("北京0201i")),
+               parseInt(localStorage.getItem("北京0202i")),]
+	}, {
+		name: '疑似人数',
+		data: [parseInt(localStorage.getItem("北京0119s")), 
+               parseInt(localStorage.getItem("北京0120s")),
+               parseInt(localStorage.getItem("北京0121s")),
+               parseInt(localStorage.getItem("北京0122s")),
+               parseInt(localStorage.getItem("北京0123s")),
+               parseInt(localStorage.getItem("北京0124s")),
+               parseInt(localStorage.getItem("北京0125s")),
+               parseInt(localStorage.getItem("北京0126s")),
+               parseInt(localStorage.getItem("北京0127s")),
+               parseInt(localStorage.getItem("北京0128s")),
+               parseInt(localStorage.getItem("北京0129s")),
+               parseInt(localStorage.getItem("北京0130s")),
+               parseInt(localStorage.getItem("北京0131s")),
+               parseInt(localStorage.getItem("北京0201s")),
+               parseInt(localStorage.getItem("北京0202s")),]
+	}, {
+		name: '治愈人数',
+		data: [parseInt(localStorage.getItem("北京0119c")), 
+               parseInt(localStorage.getItem("北京0120c")),
+               parseInt(localStorage.getItem("北京0121c")),
+               parseInt(localStorage.getItem("北京0122c")),
+               parseInt(localStorage.getItem("北京0123c")),
+               parseInt(localStorage.getItem("北京0124c")),
+               parseInt(localStorage.getItem("北京0125c")),
+               parseInt(localStorage.getItem("北京0126c")),
+               parseInt(localStorage.getItem("北京0127c")),
+               parseInt(localStorage.getItem("北京0128c")),
+               parseInt(localStorage.getItem("北京0129c")),
+               parseInt(localStorage.getItem("北京0130c")),
+               parseInt(localStorage.getItem("北京0131c")),
+               parseInt(localStorage.getItem("北京0201c")),
+               parseInt(localStorage.getItem("北京0202c")),]
+	}, {
+		name: '死亡人数',
+		data: [parseInt(localStorage.getItem("北京0119d")), 
+               parseInt(localStorage.getItem("北京0120d")),
+               parseInt(localStorage.getItem("北京0121d")),
+               parseInt(localStorage.getItem("北京0122d")),
+               parseInt(localStorage.getItem("北京0123d")),
+               parseInt(localStorage.getItem("北京0124d")),
+               parseInt(localStorage.getItem("北京0125d")),
+               parseInt(localStorage.getItem("北京0126d")),
+               parseInt(localStorage.getItem("北京0127d")),
+               parseInt(localStorage.getItem("北京0128d")),
+               parseInt(localStorage.getItem("北京0129d")),
+               parseInt(localStorage.getItem("北京0130d")),
+               parseInt(localStorage.getItem("北京0131d")),
+               parseInt(localStorage.getItem("北京0201d")),
+               parseInt(localStorage.getItem("北京0202d")),]
+	}],
+	responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 500
+			},
+			chartOptions: {
+				legend: {
+					layout: 'horizontal',
+					align: 'center',
+					verticalAlign: 'bottom'
+				}
+			}
+		}]
+	}
+});</script>
+
+<label > 更新时间：</label>
+<label id="uptime"> 2020-01-19</label>
+<table border="9"  style="background-color:#E6E6FA;border-color:lemonchiffon;" width="800" height="100" >
+    <tr>
+    <td>感染人数</td>
+    <td>疑似人数</td>
+    <td>治愈人数</td>
+    <td>死亡人数</td>
+    </tr>
+
+    <tr>
+    <td id="ip">1</td>
+    <td id="sp">0</td>
+    <td id="cp">0</td>
+    <td id="dp">0</td>
+    </tr>
+
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+<link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <script src="Statistic.js"></script>
+    <style>#body {width:1000px; height: 1000px;margin: auto;}</style>
+</head>
+
+<script type="text/javascript">
+    function func()
+    {
+
+        var select = document.getElementById("se");
+        var opt=select.value;
+        document.getElementById("uptime").innerHTML=opt;
+        if(opt=="2020-01-19")
+        {
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0119i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0119s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0119c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0119d");
+        }
+        else if(opt=="2020-01-20")
+        {
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0120i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0120s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0120c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0120d");
+        }
+        else if(opt=="2020-01-21"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0121i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0121s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0121c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0121d");
+        }
+        else if(opt=="2020-01-22"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0122i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0122s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0122c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0122d");
+            
+        }
+        else if(opt=="2020-01-23"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0123i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0123s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0123c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0123d");
+            
+        }
+        else if(opt=="2020-01-24"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0124i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0124s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0124c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0124d");
+        }
+        else if(opt=="2020-01-25"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0125i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0125s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0125c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0125d");
+        }
+        else if(opt=="2020-01-26"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0126i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0126s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0126c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0126d");
+
+        }
+        else if(opt=="2020-01-27"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0127i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0127s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0127c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0127d");
+        }
+        else if(opt=="2020-01-28"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0128i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0128s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0128c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0128d");
+        }
+        else if(opt=="2020-01-29"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0129i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0129s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0129c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0129d");
+        }
+        else if(opt=="2020-01-30"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0130i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0130s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0130c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0130d");
+        }
+
+        else if(opt=="2020-01-31"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0131i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0131s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0131c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0131d");
+        }
+        else if(opt=="2020-02-01"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0201i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0201s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0201c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0201d");
+        }
+        else if(opt=="2020-02-02"){
+            document.getElementById("ip").innerHTML=localStorage.getItem("吉林0202i");
+            document.getElementById("sp").innerHTML=localStorage.getItem("吉林0202s");
+            document.getElementById("cp").innerHTML=localStorage.getItem("吉林0202c");
+            document.getElementById("dp").innerHTML=localStorage.getItem("吉林0202d");
+        }
+    }
+</script>
+
+
+
+<!--
+<a href="./广东0119.html">
+    <button>2020-01-19</button>
+</a>
+<a href="./广东0120.html">
+    <button>2020-01-20</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-21</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-22</button>
+</a>
+<a href="http://www.baidu.com/">
+    <button>2020-01-23</button>
+</a>
+-->
+
+
+
+<script type="text/javascript">
+    localStorage.吉林0119i="0";
+    localStorage.吉林0119s="0";
+    localStorage.吉林0119c="0";
+    localStorage.吉林0119d="0";
+
+    localStorage.吉林0120i="0";
+    localStorage.吉林0120s="0";
+    localStorage.吉林0120c="0";
+    localStorage.吉林0120d="0";
+
+    localStorage.吉林0121i="0";
+    localStorage.吉林0121s="0";
+    localStorage.吉林0121c="0";
+    localStorage.吉林0121d="0";
+
+    localStorage.吉林0122i="0";
+    localStorage.吉林0122s="0";
+    localStorage.吉林0122c="0";
+    localStorage.吉林0122d="0";
+
+    localStorage.吉林0123i="1";
+    localStorage.吉林0123s="0";
+    localStorage.吉林0123c="0";
+    localStorage.吉林0123d="0";
+
+    localStorage.吉林0124i="3";
+    localStorage.吉林0124s="0";
+    localStorage.吉林0124c="0";
+    localStorage.吉林0124d="0";
+
+    localStorage.吉林0125i="4";
+    localStorage.吉林0125s="0";
+    localStorage.吉林0125c="0";
+    localStorage.吉林0125d="0";
+
+    localStorage.吉林0126i="4";
+    localStorage.吉林0126s="1";
+    localStorage.吉林0126c="0";
+    localStorage.吉林0126d="0";
+
+    localStorage.吉林0127i="6";
+    localStorage.吉林0127s="0";
+    localStorage.吉林0127c="0";
+    localStorage.吉林0127d="0";
+
+    localStorage.吉林0128i="8";
+    localStorage.吉林0128s="0";
+    localStorage.吉林0128c="0";
+    localStorage.吉林0128d="0";
+
+    localStorage.吉林0129i="9";
+    localStorage.吉林0129s="0";
+    localStorage.吉林0129c="0";
+    localStorage.吉林0129d="0";
+
+    localStorage.吉林0130i="14";
+    localStorage.吉林0130s="10";
+    localStorage.吉林0130c="0";
+    localStorage.吉林0130d="0";
+
+    localStorage.吉林0131i="13";
+    localStorage.吉林0131s="10";
+    localStorage.吉林0131c="1";
+    localStorage.吉林0131d="0";
+
+    localStorage.吉林0201i="16";
+    localStorage.吉林0201s="10";
+    localStorage.吉林0201c="1";
+    localStorage.吉林0201d="0";
+
+    localStorage.吉林0202i="22";
+    localStorage.吉林0202s="14";
+    localStorage.吉林0202c="1";
+    localStorage.吉林0202d="0";
+
+</script>
+<body>
+    <div id="body">
+    <select id="se">
+        <option value ="2020-01-19">2020-01-19</option>
+        <option value ="2020-01-20">2020-01-20</option>
+        <option value ="2020-01-21">2020-01-21</option>
+        <option value ="2020-01-22">2020-01-22</option>
+        <option value ="2020-01-23">2020-01-23</option>
+        <option value ="2020-01-24">2020-01-24</option>
+        <option value ="2020-01-25">2020-01-25</option>
+        <option value ="2020-01-26">2020-01-26</option>
+        <option value ="2020-01-27">2020-01-27</option>
+        <option value ="2020-01-28">2020-01-28</option>
+        <option value ="2020-01-29">2020-01-29</option>
+        <option value ="2020-01-30">2020-01-30</option>
+        <option value ="2020-01-31">2020-01-31</option>
+        <option value ="2020-02-01">2020-02-01</option>
+        <option value ="2020-02-02">2020-02-02</option>
+    </select>
+    
+    <button type="button" id="b1" style="color: #fa8072" onclick=func()>确定</button></br>
+    
+
+	<div id="container" style="max-width:800px;height:400px"></div>
+	<script>
+	var chart = Highcharts.chart('container', {
+	title: {
+		text: '吉林疫情统情况'
+	},
+	
+	yAxis: {
+		title: {
+			text: '人数'
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle'
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+			pointStart: 19
+		}
+	},
+	series: [{
+		name: '感染人数',
+		data: [parseInt(localStorage.getItem("吉林0119i")), 
+               parseInt(localStorage.getItem("吉林0120i")),
+               parseInt(localStorage.getItem("吉林0121i")),
+               parseInt(localStorage.getItem("吉林0122i")),
+               parseInt(localStorage.getItem("吉林0123i")),
+               parseInt(localStorage.getItem("吉林0124i")),
+               parseInt(localStorage.getItem("吉林0125i")),
+               parseInt(localStorage.getItem("吉林0126i")),
+               parseInt(localStorage.getItem("吉林0127i")),
+               parseInt(localStorage.getItem("吉林0128i")),
+               parseInt(localStorage.getItem("吉林0129i")),
+               parseInt(localStorage.getItem("吉林0130i")),
+               parseInt(localStorage.getItem("吉林0131i")),
+               parseInt(localStorage.getItem("吉林0201i")),
+               parseInt(localStorage.getItem("吉林0202i")),]
+	}, {
+		name: '疑似人数',
+		data: [parseInt(localStorage.getItem("吉林0119s")), 
+               parseInt(localStorage.getItem("吉林0120s")),
+               parseInt(localStorage.getItem("吉林0121s")),
+               parseInt(localStorage.getItem("吉林0122s")),
+               parseInt(localStorage.getItem("吉林0123s")),
+               parseInt(localStorage.getItem("吉林0124s")),
+               parseInt(localStorage.getItem("吉林0125s")),
+               parseInt(localStorage.getItem("吉林0126s")),
+               parseInt(localStorage.getItem("吉林0127s")),
+               parseInt(localStorage.getItem("吉林0128s")),
+               parseInt(localStorage.getItem("吉林0129s")),
+               parseInt(localStorage.getItem("吉林0130s")),
+               parseInt(localStorage.getItem("吉林0131s")),
+               parseInt(localStorage.getItem("吉林0201s")),
+               parseInt(localStorage.getItem("吉林0202s")),]
+	}, {
+		name: '治愈人数',
+		data: [parseInt(localStorage.getItem("吉林0119c")), 
+               parseInt(localStorage.getItem("吉林0120c")),
+               parseInt(localStorage.getItem("吉林0121c")),
+               parseInt(localStorage.getItem("吉林0122c")),
+               parseInt(localStorage.getItem("吉林0123c")),
+               parseInt(localStorage.getItem("吉林0124c")),
+               parseInt(localStorage.getItem("吉林0125c")),
+               parseInt(localStorage.getItem("吉林0126c")),
+               parseInt(localStorage.getItem("吉林0127c")),
+               parseInt(localStorage.getItem("吉林0128c")),
+               parseInt(localStorage.getItem("吉林0129c")),
+               parseInt(localStorage.getItem("吉林0130c")),
+               parseInt(localStorage.getItem("吉林0131c")),
+               parseInt(localStorage.getItem("吉林0201c")),
+               parseInt(localStorage.getItem("吉林0202c")),]
+	}, {
+		name: '死亡人数',
+		data: [parseInt(localStorage.getItem("吉林0119d")), 
+               parseInt(localStorage.getItem("吉林0120d")),
+               parseInt(localStorage.getItem("吉林0121d")),
+               parseInt(localStorage.getItem("吉林0122d")),
+               parseInt(localStorage.getItem("吉林0123d")),
+               parseInt(localStorage.getItem("吉林0124d")),
+               parseInt(localStorage.getItem("吉林0125d")),
+               parseInt(localStorage.getItem("吉林0126d")),
+               parseInt(localStorage.getItem("吉林0127d")),
+               parseInt(localStorage.getItem("吉林0128d")),
+               parseInt(localStorage.getItem("吉林0129d")),
+               parseInt(localStorage.getItem("吉林0130d")),
+               parseInt(localStorage.getItem("吉林0131d")),
+               parseInt(localStorage.getItem("吉林0201d")),
+               parseInt(localStorage.getItem("吉林0202d")),]
+	}],
+	responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 500
+			},
+			chartOptions: {
+				legend: {
+					layout: 'horizontal',
+					align: 'center',
+					verticalAlign: 'bottom'
+				}
+			}
+		}]
+	}
+});</script>
+
+<label > 更新时间：</label>
+<label id="uptime"> 2020-01-19</label>
+<table border="9"  style="background-color:#E6E6FA;border-color:lemonchiffon;" width="800" height="100" >
+    <tr>
+    <td>感染人数</td>
+    <td>疑似人数</td>
+    <td>治愈人数</td>
+    <td>死亡人数</td>
+    </tr>
+
+    <tr>
+    <td id="ip">1</td>
+    <td id="sp">0</td>
+    <td id="cp">0</td>
+    <td id="dp">0</td>
+    </tr>
+
+</table>
+</div>
+</body>
+</html>
