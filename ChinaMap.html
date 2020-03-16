@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <title>新冠肺炎疫情统计</title>
+    <script src="echarts.min.js"></script>
+    <script src="china.js"></script>
+    <script src="Statistic.js"></script>
+    <script src="Select.js"></script>
+    <script src="Style.css"></script>
+
+    <style>
+        #china-map {
+            width:1000px; 
+            height: 1000px;
+            margin: auto;
+            position: fixed;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 48px;
+	        background-color: red; /* 浏览器不支持时显示 */
+            background-image: linear-gradient(#e66465, #9198e5);
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #f8a3d7;
+        }      
+        select{
+            position: relative;
+            top:15px;
+            left:640px;
+            height: 2em;
+            width: 8em;
+        }
+        button{
+            position: relative;
+            top:15px;
+            left:650px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--导航栏-->
+    <ul>
+        <li><a class="active" href="ChinaMap.html">中国疫情统计</a></li>
+        <li><a href="WorldMap.html">世界疫情统计</a></li>
+    </ul>
+    
+    <!--标题设置-->
+    <h1 align="center"><font color="#374b71" face="等线" size=30>中国新型冠状肺炎疫情统计</font></h1>
+    <h2 id="date" align="center"><font color="grey" face="等线" size=5>数据来源：2020-03-10疫情病例统计</font></h2>
+
+    <!--下拉列表-->
+    <select id="select">
+        <option value ="2020-01-19">2020-01-19</option>
+        <option value ="2020-01-20">2020-01-20</option>
+        <option value ="2020-01-21">2020-01-21</option>
+        <option value ="2020-01-22">2020-01-22</option>
+        <option value ="2020-01-23">2020-01-23</option>
+        <option value ="2020-01-24">2020-01-24</option>
+        <option value ="2020-01-25">2020-01-25</option>
+        <option value ="2020-01-26">2020-01-26</option>
+        <option value ="2020-01-27">2020-01-27</option>
+        <option value ="2020-01-28">2020-01-28</option>
+        <option value ="2020-01-29">2020-01-29</option>
+        <option value ="2020-01-30">2020-01-30</option>
+        <option value ="2020-01-31">2020-01-31</option>
+        <option value ="2020-02-01">2020-02-01</option>
+        <option value ="2020-02-02">2020-02-02</option>
+    </select>
+    <button type="button" id="b" style="color: #fa8072" onclick=func()>确定</button></br>
+
+    <div id="china-map"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById('china-map'));
+        var mapName = 'china'
+
+        //初始数据(2020-03-10)
+        var data = [
+            {name:"北京",value:101},
+            {name:"天津",value:2},
+            {name:"河北",value:5},
+            {name:"山西",value:5},
+            {name:"内蒙古",value:4},
+            {name:"辽宁",value:599},
+            {name:"吉林",value:1},
+            {name:"黑龙江",value:34},
+            {name:"上海",value:22},
+            {name:"江苏",value:4},
+            {name:"浙江",value:23},
+            {name:"安徽",value:0},
+            {name:"福建",value:0},
+            {name:"江西",value:7},
+            {name:"山东",value:33},
+            {name:"河南",value:3},
+            {name:"湖北",value:16995},
+            {name:"湖南",value:24},
+            {name:"重庆",value:28},
+            {name:"四川",value:58},
+            {name:"贵州",value:15},
+            {name:"云南",value:2},
+            {name:"西藏",value:0},
+            {name:"陕西",value:17},
+            {name:"甘肃",value:34},
+            {name:"青海",value:0},
+            {name:"宁夏",value:4},
+            {name:"新疆",value:0},
+            {name:"广东",value:71},
+            {name:"广西",value:16},
+            {name:"海南",value:3},
+            {name:"台湾",value:10}        
+        ];
+            
+        var geoCoordMap = {};
+
+        //悬浮文字
+        var toolTipData = [
+            
+            {name:"北京",value:[{name:"现存确诊",value:101}]},
+            {name:"天津",value:[{name:"现存确诊",value:2}]},
+            {name:"河北",value:[{name:"现存确诊",value:5}]},
+            {name:"山西",value:[{name:"现存确诊",value:5}]},
+            {name:"内蒙古",value:[{name:"现存确诊",value:4}]},
+            {name:"辽宁",value:[{name:"现存确诊",value:13}]},
+            {name:"吉林",value:[{name:"现存确诊",value:1}]},
+            {name:"黑龙江",value:[{name:"现存确诊",value:34}]},
+            {name:"上海",value:[{name:"现存确诊",value:22}]},
+            {name:"江苏",value:[{name:"现存确诊",value:4}]},
+            {name:"浙江",value:[{name:"现存确诊",value:23}]},
+            {name:"安徽",value:[{name:"现存确诊",value:0}]},
+            {name:"福建",value:[{name:"现存确诊",value:0}]},
+            {name:"江西",value:[{name:"现存确诊",value:7}]},
+            {name:"山东",value:[{name:"现存确诊",value:33}]},
+            {name:"河南",value:[{name:"现存确诊",value:3}]},
+            {name:"湖北",value:[{name:"现存确诊",value:16995}]},
+            {name:"湖南",value:[{name:"现存确诊",value:24}]},
+            {name:"重庆",value:[{name:"现存确诊",value:28}]},
+            {name:"四川",value:[{name:"现存确诊",value:58}]},
+            {name:"贵州",value:[{name:"现存确诊",value:15}]},
+            {name:"云南",value:[{name:"现存确诊",value:2}]},
+            {name:"西藏",value:[{name:"现存确诊",value:0}]},
+            {name:"陕西",value:[{name:"现存确诊",value:17}]},
+            {name:"甘肃",value:[{name:"现存确诊",value:34}]},
+            {name:"青海",value:[{name:"现存确诊",value:0}]},
+            {name:"宁夏",value:[{name:"现存确诊",value:4}]},
+            {name:"新疆",value:[{name:"现存确诊",value:0}]},
+            {name:"广东",value:[{name:"现存确诊",value:71}]},
+            {name:"广西",value:[{name:"现存确诊",value:16}]},
+            {name:"海南",value:[{name:"现存确诊",value:3}]},
+            {name:"台湾",value:[{name:"现存确诊",value:10}]}  
+        ];
+
+        if(select!=null){
+            
+        }
+        /*获取地图数据*/
+        myChart.showLoading();
+        var mapFeatures = echarts.getMap(mapName).geoJson.features;
+        myChart.hideLoading();
+        mapFeatures.forEach(function(v) {
+            // 地区名称
+            var name = v.properties.name;
+            // 地区经纬度
+            geoCoordMap[name] = v.properties.cp;
+
+        });
+
+        console.log(data)
+        console.log(toolTipData)
+        var max = 480,
+            min = 9; // todo 
+        var maxSize4Pin = 100,
+            minSize4Pin = 20;
+        var convertData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value),
+                    });
+                }
+            }
+            return res;
+        };
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                    if (typeof(params.value)[2] == "undefined") {
+                        var toolTiphtml = ''
+                        for(var i = 0;i<toolTipData.length;i++){
+                            if(params.name==toolTipData[i].name){
+                                toolTiphtml += toolTipData[i].name+':<br>'
+                                for(var j = 0;j<toolTipData[i].value.length;j++){
+                                    toolTiphtml+=toolTipData[i].value[j].name+':'+toolTipData[i].value[j].value+"<br>"
+                                }
+                            }
+                        }
+                        console.log(toolTiphtml)
+                        return toolTiphtml;
+                    } else {
+                        var toolTiphtml = ''
+                        for(var i = 0;i<toolTipData.length;i++){
+                            if(params.name==toolTipData[i].name){
+                                toolTiphtml += toolTipData[i].name+':<br>'
+                                for(var j = 0;j<toolTipData[i].value.length;j++){
+                                    toolTiphtml+=toolTipData[i].value[j].name+':'+toolTipData[i].value[j].value+"<br>"
+                                }
+                            }
+                        }
+                        console.log(toolTiphtml)
+                        return toolTiphtml;
+                    }
+                }
+            },
+            dataRange:{//颜色的设置  dataRange
+                    x: 'left',
+                    y: 'center',    
+                    splitList: [
+                        {start: 1000,color:'#880000',label:'>1000'},
+                        {start: 499, end: 1000,color:'AA0000',label:'499-1000'},
+                        {start: 100, end: 499,color:'#FF3333',label:'100-499'},
+                        {start: 10, end: 99,color:'#FF8888',label:'10-99'},
+                        {start: 1, end: 9,color:'#FFCCCC',label:'1-9'},
+                        {start: 0, end: 0 , color: 'white',label:'0'},
+                    ],
+                    text:['高','低'],// 文本，默认为数值文本      
+            },
+            geo: {
+                show: true,
+                map: mapName,
+                label: {
+                    normal: {
+                        show: false,
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#031525',
+                        borderColor: '#3B5077',
+                    },
+                    emphasis: {//高亮颜色设置
+                        areaColor: '#FFFF00',
+                    }
+                }
+            },
+            series: [{
+                    name: '散点',
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(data),
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#05C3F9'
+                        }
+                    }
+                },
+                {
+                    type: 'map',
+                    map: mapName,
+                    geoIndex: 0,
+                    aspectScale: 0.75, //长宽比
+                    showLegendSymbol: false, // 存在legend时显示
+                    label: {
+                        normal: {
+                            show: true
+                        },
+                        emphasis: {
+                            show: false,
+                            textStyle: {
+                                color: 'red'
+                            }
+                        }
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#031525',
+                            borderColor: '#3B5077',
+                        },
+                        emphasis: {
+                            areaColor: '#2B91B7'
+                        }
+                    },
+                    animation: false,
+                    data: data
+                },
+           
+
+            ]
+        };
+        myChart.setOption(option);
+        //鼠标悬浮事件
+        myChart.on('mouseover', function (params) {
+            var dataIndex = params.dataIndex;
+            console.log(params);
+        });
+        //鼠标单击事件
+        myChart.on('click', function (params) {
+            // console.log(params)
+            window.open(encodeURIComponent(params.name)+'.html');
+        });
+    </script>
+
+</body>
+</html>
