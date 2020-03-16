@@ -4,10 +4,9 @@ function func()
     var select=document.getElementById("select");
     var opt=select.value;           
     var subTitle=document.getElementById("date");
-    document.getElementById("date").innerHTML="数据来源："+opt+"疫情病例统计";
+    subTitle.innerHTML="数据来源："+opt+"疫情病例统计";
     subTitle.style.color="grey";
-    subTitle.style.fontSizeAdjust=3
-    subTitle.style.fontFamily="等线"
+    subTitle.style.fontFamily="等线";
     
     date=opt;
     //document.write(date);
@@ -16,7 +15,6 @@ function func()
         for(var i=0;i<data.length;i++){
             data[i].value=localStorage.getItem(data[i].name+'0119i');
             toolTipData[i].value=[{name:"现存确诊",value:data[i].value}];
-            //document.write(toolTipData[i].name,'**',toolTipData[i].value);
         }
         
     }

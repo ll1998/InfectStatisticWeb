@@ -8,9 +8,64 @@
     <script src="china.js"></script>
     <script src="Statistic.js"></script>
     <script src="Select.js"></script>
-    <style>#china-map {width:1000px; height: 1000px;margin: auto;}</style>
+    <script src="Style.css"></script>
+
+    <style>
+        #china-map {
+            width:1000px; 
+            height: 1000px;
+            margin: auto;
+            position: fixed;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 48px;
+	        background-color: red; /* 浏览器不支持时显示 */
+            background-image: linear-gradient(#e66465, #9198e5);
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #f8a3d7;
+        }      
+        select{
+            position: relative;
+            top:15px;
+            left:640px;
+            height: 2em;
+            width: 8em;
+        }
+        button{
+            position: relative;
+            top:15px;
+            left:650px;
+        }
+    </style>
+
 </head>
 <body>
+
+    <!--导航栏-->
+    <ul>
+        <li><a class="active" href="ChinaMap.html">中国疫情统计</a></li>
+        <li><a href="WorldMap.html">世界疫情统计</a></li>
+    </ul>
+    
+    <!--标题设置-->
+    <h1 align="center"><font color="#374b71" face="等线" size=30>中国新型冠状肺炎疫情统计</font></h1>
+    <h2 id="date" align="center"><font color="grey" face="等线" size=5>数据来源：2020-03-10疫情病例统计</font></h2>
+
     <!--下拉列表-->
     <select id="select">
         <option value ="2020-01-19">2020-01-19</option>
@@ -31,16 +86,12 @@
     </select>
     <button type="button" id="b" style="color: #fa8072" onclick=func()>确定</button></br>
 
-    <!--标题设置-->
-    <h1 align="center"><font color="#374b71" face="等线" size=30>新型冠状肺炎疫情统计</font></h1>
-    <h2 id="date" align="center"><font color="grey" face="等线" size=5>数据来源：2020-03-10疫情病例统计</font></h2>
-
     <div id="china-map"></div>
     <script>
         var myChart = echarts.init(document.getElementById('china-map'));
         var mapName = 'china'
 
-        //初始数据
+        //初始数据(2020-03-10)
         var data = [
             {name:"北京",value:101},
             {name:"天津",value:2},
@@ -176,7 +227,6 @@
                             }
                         }
                         console.log(toolTiphtml)
-                        // console.log(convertData(data))
                         return toolTiphtml;
                     } else {
                         var toolTiphtml = ''
@@ -189,12 +239,11 @@
                             }
                         }
                         console.log(toolTiphtml)
-                        // console.log(convertData(data))
                         return toolTiphtml;
                     }
                 }
             },
-            visualMap:/* {
+           /* visualMap: {
                 show: true,
                 min: 0,
                 max: 120,
@@ -222,25 +271,20 @@
             
 
             },*/
-            {//颜色的设置  dataRange
+            dataRange:{//颜色的设置  dataRange
                     x: 'left',
                     y: 'center',    
                     splitList: [
-                        {start: 1000,color:'#880000'},
-                        {start: 499, end: 1000,color:'AA0000',borderColor:'black'},
-                        {start: 100, end: 499,color:'#FF3333'},
-                        {start: 10, end: 99,color:'#FF8888'},
-                        {start: 1, end: 9,color:'#FFCCCC'},
-                        {start: 0, end: 0 , color: 'white'},
-                    // {end: 0}
+                        {start: 1000,color:'#880000',label:'>1000'},
+                        {start: 499, end: 1000,color:'AA0000',label:'499-1000'},
+                        {start: 100, end: 499,color:'#FF3333',label:'100-499'},
+                        {start: 10, end: 99,color:'#FF8888',label:'10-99'},
+                        {start: 1, end: 9,color:'#FFCCCC',label:'1-9'},
+                        {start: 0, end: 0 , color: 'white',label:'0'},
                     ],
-                    text:['高','低'],// 文本，默认为数值文本
-                    
-                
-                    
+                    text:['高','低'],// 文本，默认为数值文本      
             },
-                
-        
+           
             /*工具按钮组*/
             // toolbox: {
             //     show: true,
@@ -260,7 +304,7 @@
                 map: mapName,
                 label: {
                     normal: {
-                        show: false
+                        show: false,
                     },
                     emphasis: {
                         show: false,
@@ -303,7 +347,6 @@
                     itemStyle: {
                         normal: {
                             color: '#05C3F9'
-                        //color:'#000000'
                         }
                     }
                 },
@@ -320,7 +363,7 @@
                         emphasis: {
                             show: false,
                             textStyle: {
-                                color: '#fff'
+                                color: 'red'
                             }
                         }
                     },
