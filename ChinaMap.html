@@ -166,6 +166,9 @@
             {name:"台湾",value:[{name:"现存确诊",value:10}]}  
         ];
 
+        if(select!=null){
+            
+        }
         /*获取地图数据*/
         myChart.showLoading();
         var mapFeatures = echarts.getMap(mapName).geoJson.features;
@@ -197,22 +200,7 @@
             }
             return res;
         };
-
         option = {
-           /* title: {
-                text: name_title,
-                subtext: subname,
-                x: 'center',
-                textStyle: {
-                    color: nameColor,
-                    fontFamily: name_fontFamily,
-                    fontSize: name_fontSize
-                },
-                subtextStyle:{
-                    fontSize:subname_fontSize,
-                    fontFamily:name_fontFamily
-                }
-            },*/
             tooltip: {
                 trigger: 'item',
                 formatter: function(params) {
@@ -243,34 +231,6 @@
                     }
                 }
             },
-           /* visualMap: {
-                show: true,
-                min: 0,
-                max: 120,
-                left: 'left',
-                top: 'bottom',
-                text: ['高', '低'], // 文本，默认为数值文本
-                calculable: true,
-                seriesIndex: [1],
-                inRange: {
-                    // color: ['#3B5077', '#031525'] // 蓝黑
-                    // color: ['#ffc0cb', '#800080'] // 红紫
-                    // color: ['#3C3B3F', '#605C3C'] // 黑绿
-                    // color: ['#0f0c29', '#302b63', '#24243e'] // 黑紫黑
-                    // color: ['#23074d', '#cc5333'] // 紫红
-                    //color: ['#00467F', '#A5CC82'] // 蓝绿
-                    // color: ['#1488CC', '#2B32B2'] // 浅蓝
-                    // color: ['#00467F', '#A5CC82'] // 蓝绿
-                    // color: ['#00467F', '#A5CC82'] // 蓝绿
-                    // color: ['#00467F', '#A5CC82'] // 蓝绿
-                // color: ['#00467F', '#A5CC82'] // 蓝绿
-                    color: ['#FFFFFF', '#FF0000'] 
-
-                },
-                
-            
-
-            },*/
             dataRange:{//颜色的设置  dataRange
                     x: 'left',
                     y: 'center',    
@@ -284,21 +244,6 @@
                     ],
                     text:['高','低'],// 文本，默认为数值文本      
             },
-           
-            /*工具按钮组*/
-            // toolbox: {
-            //     show: true,
-            //     orient: 'vertical',
-            //     left: 'right',
-            //     top: 'center',
-            //     feature: {
-            //         dataView: {
-            //             readOnly: false
-            //         },
-            //         restore: {},
-            //         saveAsImage: {}
-            //     }
-            // },
             geo: {
                 show: true,
                 map: mapName,
@@ -326,14 +271,6 @@
                     type: 'scatter',
                     coordinateSystem: 'geo',
                     data: convertData(data),
-                    //设置圆点的大小随数值变化
-                /* symbolSize: function(val) {
-                        //return val[2] / 10;
-                        if(val[2]<120)
-                            return val[2]/10;
-                        else 
-                            return 20;
-                    },*/
                     label: {
                         normal: {
                             formatter: '{b}',
@@ -380,65 +317,7 @@
                     animation: false,
                     data: data
                 },
-            /* {
-                    name: '点',
-                    type: 'scatter',
-                    coordinateSystem: 'geo',
-                    symbol: 'pin', //气泡
-                    symbolSize: function(val) {
-                        var a = (maxSize4Pin - minSize4Pin) / (max - min);
-                        var b = minSize4Pin - a * min;
-                        b = maxSize4Pin - a * max;
-                        return a * val[2] + b;
-                    },
-                    label: {
-                        normal: {
-                            show: true,
-                            textStyle: {
-                                color: '#fff',
-                                fontSize: 9,
-                            }
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: '#F62157', //标志颜色
-                        }
-                    },
-                    zlevel: 6,
-                    data: convertData(data),
-                },
-                {
-                    name: 'Top 5',
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    data: convertData(data.sort(function(a, b) {
-                        return b.value - a.value;
-                    }).slice(0, 5)),
-                    symbolSize: function(val) {
-                        return val[2] / 10;
-                    },
-                    showEffectOn: 'render',
-                    rippleEffect: {
-                        brushType: 'stroke'
-                    },
-                    hoverAnimation: true,
-                    label: {
-                        normal: {
-                            formatter: '{b}',
-                            position: 'right',
-                            show: true
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: 'yellow',
-                            shadowBlur: 10,
-                            shadowColor: 'yellow'
-                        }
-                    },
-                    zlevel: 1
-                },*/
+           
 
             ]
         };
