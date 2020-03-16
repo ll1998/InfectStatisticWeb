@@ -14,41 +14,96 @@
             margin: auto;
            
         }
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 48px;
-	        background-color: red; /* 浏览器不支持时显示 */
-            background-image: linear-gradient(#e66465, #9198e5);
-        }
+            ul
+            {
+                /*去除上和左边距*/
+                margin: 0;
+                padding:0;
+                width:100%;
+               
+                list-style-type: none;
+                
+                height: 48px;
+                background-color: red; /* 浏览器不支持时显示 */
+                background-image: linear-gradient(#e66465, #9198e5);
+            }
+            .foundation>li
+            {
+                float: left;              
+                width: 10%;
+                text-align: center;
+            }
+            a
+            {
+                /*去掉下划线*/
+                text-decoration: none;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li:hover
+            {
+                 background-color:lightpink;
+            }
 
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: #f8a3d7;
-        }
+        </style>
+        <style type="text/css" name="下拉菜单">
+    
+            .dropdown
+            {
+                display:none;
+                /*鼠标不在上面时 隐藏*/
+            }
+            .dropdown li
+            {
+                border-left:1px solid grey;
+                border-bottom:1px solid grey;
+                border-right:1px solid grey;
+                background:lightpink;
+                font-size: 15px;
+               
+    
+                /*下拉菜单样式设置*/
+            }
+            .dropdown li:hover
+            {
+                /*背景变色*/
+                background:lightsalmon;
+                /*字体变色*/
+                color:white;
+          
+            }
+    
+            #menu11 ul li:hover .dropdown
+            {
+                display: block;
+                /*下拉菜单的展开*/
+            }
     </style>
 </head>
 <body>
     <!--导航栏设置-->
-    <ul>
-        <li><a class="active" href="ChinaMap.html">中国疫情统计</a></li>
-        <li><a href="WorldMap.html">世界疫情统计</a></li>
-    </ul>
+    <div id="menu11">
+        <ul class="foundation">
+            <li><a href="ChinaMap.html" >中国疫情统计</a></li>
+            <li><a href="WorldMap.html" >世界疫情统计</a></li>
+            <li><a href="ProtectKnowledge.html" >防护知识</a>
+                <div class="dropdown">
+                    <ul>
+                        <li ><a href="ProtectKnowledge.html#what">简介</a></li>
+                        <li><a href="ProtectKnowledge.html#how">预防</a></li>
+                       
+                    </ul>
+                </div>
+            </li>  
+           
+        </ul>
+    </div>      
 
     <!--标题设置-->
+    </br></br>
     <h1 align="center"><font color="#374b71" face="等线" size=30>世界新型冠状肺炎疫情统计</font></h1>
     <h2 id="date" align="center"><font color="grey" face="等线" size=5>数据来源：2020-03-15疫情病例统计</font></h2>
  
